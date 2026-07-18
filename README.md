@@ -54,10 +54,28 @@ After B.L. printed the hardware, each piece was measured and the parameters were
 - $J_w=4.73315∗10^{−4} \ kgm^2$
 
 Thus, the numerical EOMs are:\
-
 <img width="297" height="86" alt="image" src="https://github.com/user-attachments/assets/345a6a7d-06f3-4334-819b-dd94249ba0d5" />
 
 ## Simulation
+This section was primarily completed by S.B. He developed the following SIMULINK model of the system:\
+<img width="810" height="330" alt="image" src="https://github.com/user-attachments/assets/fe6e7051-e6b8-4d5e-af77-ad0ff61b9fd0" />
+
+This model simulates the system's reaction to a disturbance via a pulse of magnitude $-0.1 \ rad$ applied for one second. The model runs this input through the state space model generated in the previous section. The simulation pulls plots of arm angle (theta), wheel angle (omega), and motor torque (tau). Bryson's rule was applied with $\theta_{max}=0.052 \ rad$, $\dot\theta_{max}=0.1 \ rad/s$, $\omega_{max}=2\pi \ rad/s$, and $U_{max}=5$ to generate values for the system parameters K. These were tweaked until K produced desirable results. The final chosen K values were:
+$K=[-56.607 \ -11.658 \ -0.159]$.
+These gain values yielded the following graphs through the SIMULINK model:\
+<img width="593" height="388" alt="image" src="https://github.com/user-attachments/assets/89c62838-2265-42e0-9ff3-67db4723f69c" />
+<img width="597" height="400" alt="image" src="https://github.com/user-attachments/assets/e838685c-a463-4dbd-8cf3-6b6fca352be3" />
+<img width="613" height="382" alt="image" src="https://github.com/user-attachments/assets/26bea24b-67ba-4eb5-ad35-2ec4c91f1485" />
+
+Investigating these plots in MATLAB yields the results:
+- $t_r<1 \ s$, meeting the one second maximum rise time goal.
+- $t_s=8 \ s$, well exceeding the two second settling time goal.
+- $e_{ss}=0$, well within the three degree goal.
+- $4.7^\circ$ overshoot, within the thirteen degree goal.
+- $5.7 \ Nm$ torque.
+
+Although the settling time goal was not met, the simulation yielded valuable values of the controller gains K and gave us insight into how the system might behave when applied to real hardware.
+
 ## Controller Design and Evaluation
 ## Hardware Implementation
 ## Final Remarks
