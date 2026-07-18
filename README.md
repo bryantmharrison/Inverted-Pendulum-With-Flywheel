@@ -30,6 +30,33 @@ Using the video above as a loose model, we came up with a list of parts that wou
 All of this information was included in a project proposal that was submitted and approved by the class TAs. This proposal is also attached in the repository.
 
 ## System Dynamics Modeling
+This section was a collaborative effort between myself and J.I., with a little input from B.L. The following image shows a simplified model of the system used for the math behind the system:\
+<img width="265" height="397" alt="image" src="https://github.com/user-attachments/assets/bd1fc88e-7df9-4824-a168-ccb28c190498" />
+
+The assumptions made to simplify the mathematics are as follows:
+1. Motion is restricted to a single plane.
+2. The system can be modeled as a single degree of freedom system.
+3. The inverted pendulum is rigid.
+4. The reaction wheel is rigid and spins about a fixed axis on its attachment to the inverted pendulum.
+5. "Motor torque" refers to the system input.
+6. Balancing occurs around the vertical position, so the small angle approximation can be used.
+7. All other forces and considerations (drag, friction, etc.) are ignored.
+
+The full derivation of the equations of motion (EOMs) can be found in the report attached to this repository. The final EOMs in state-space form are as follows:\
+<img width="255" height="218" alt="image" src="https://github.com/user-attachments/assets/5e07ba46-cc81-4078-9aa5-f8677d899f73" />
+
+**Note:** $x_1$ represents the angle of the arm, $x_2$ represents the angular speed of the arm, $x_3$ represents the speed of the system as a whole, and $u$ represents the system input.
+
+After B.L. printed the hardware, each piece was measured and the parameters were found to be the following values:
+- $m=0.23746 \ kg$
+- $l=0.153 \ m$
+- $J_p=0.004514 \ kgm^2$
+- $J_w=4.73315∗10^{−4} \ kgm^2$
+
+Thus, the numerical EOMs are:\
+
+<img width="297" height="86" alt="image" src="https://github.com/user-attachments/assets/345a6a7d-06f3-4334-819b-dd94249ba0d5" />
+
 ## Simulation
 ## Controller Design and Evaluation
 ## Hardware Implementation
