@@ -77,5 +77,26 @@ Investigating these plots in MATLAB yields the results:
 Although the settling time goal was not met, the simulation yielded valuable values of the controller gains K and gave us insight into how the system might behave when applied to real hardware.
 
 ## Controller Design and Evaluation
+This section was primarily completed by J.I. Using MATLAB and the state-space system above, he generated gains with MATLAB's lqr() function. This produced $K=[-281.3905 \ -58.1871 \ -0.7958]$. Then, he also generated root locus, Bode, and step response plots for the system:\
+<img width="796" height="397" alt="image" src="https://github.com/user-attachments/assets/40fd6684-adc7-4dd1-a92b-635fe0a2def9" />
+<img width="508" height="468" alt="image" src="https://github.com/user-attachments/assets/cab2213a-2645-4736-a881-7ec3c64a79af" />
+<img width="518" height="408" alt="image" src="https://github.com/user-attachments/assets/cd5ff702-9dea-4d79-b08c-29323a944299" />
+
 ## Hardware Implementation
+The hardware was mostly designed and constructed by B.L. He designed the pendulum/flywheel in SolidWorks, then he 3D printed all pieces. He assembled them.\
+<img width="532" height="421" alt="image" src="https://github.com/user-attachments/assets/52d7b28c-7e48-40d8-b7e0-6a95b9b30f5a" />
+<img width="417" height="598" alt="image" src="https://github.com/user-attachments/assets/334e9e0d-8400-4159-9df5-14c4de74496b" />
+
+The implementation of the controller, however, was a consistent group effort between everyone on the team. After some trial and error, each electrical component was properly connected with the following wiring diagram:\
+<img width="615" height="422" alt="image" src="https://github.com/user-attachments/assets/21917537-95ea-4d4c-a966-8f7ff689fee0" />
+
+We devised an Arduino code (originally written by B.L., J.I., and S.B. then tweaked by A.D. and myself). This ran on the system but was far from successful. The gains were tuned experimentally, starting at the K in the previous section. Finally, we arrived at $K=[5.0 \ 0.5 \ 1.0]$. These values of K managed to balance the pendulum in its upright position! J.I. and I took the data from the Arduino IDE and produced the following plots of the system running:\
+<img width="603" height="468" alt="image" src="https://github.com/user-attachments/assets/5f011bed-99a8-4564-a1f0-acf60bd8aba8" />
+<img width="617" height="498" alt="image" src="https://github.com/user-attachments/assets/465a4772-b78c-4de6-97c8-f3c503fe70cc" />
+<img width="626" height="466" alt="image" src="https://github.com/user-attachments/assets/f136eade-e908-4efa-988f-d6d29761e3d4" />
+
+These plots reveal that the system was not totally successful, however. But, this was as close as we could get it within the deadline.
+
+## Presentation of Findings
 ## Final Remarks
+We are still very proud that we got it working, especially because there were several setbacks. At one point, the project was knocked off of its table and the flywheel broke! B.L. reprinted a new flywheel within the next few hours and we all scrambled to repair the system.
