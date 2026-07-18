@@ -95,8 +95,16 @@ We devised an Arduino code (originally written by B.L., J.I., and S.B. then twea
 <img width="617" height="498" alt="image" src="https://github.com/user-attachments/assets/465a4772-b78c-4de6-97c8-f3c503fe70cc" />
 <img width="626" height="466" alt="image" src="https://github.com/user-attachments/assets/f136eade-e908-4efa-988f-d6d29761e3d4" />
 
-These plots reveal that the system was not totally successful, however. But, this was as close as we could get it within the deadline.
+These plots reveal that the system was not totally successful, however. But, this was as close as we could get it within the deadline. We are still very proud that we got it working, especially because there were several setbacks. At one point, the project was knocked off of its table and the flywheel broke! B.L. reprinted a new flywheel within the next few hours and we all scrambled to repair the system. The Arduino code was extremely finnicky as well and required significant tweaking until it worked. Other important observations that we found:
+- The settling time was very high, likely due to the low derivative gain. However, increasing the derivative gain by any significant amount completely broke the software's functionality. This was very confusing, so we had to work around this.
+- The steady state error was also high, likely due to an error in the software. The system had to be calibrated each time to find the zero-point, so any amount off of the exact vertical when calibrating could introduce error in the results.
+- Overshoot was extremely high. Periodically, the motor would shoot the pendulum off to one side. This behavior was unexpected, but the system would correct itself.
+- The system was very top-heavy. The weight of the motor made this project more difficult than it could have been. A smaller, potentially stronger motor would be more desirable.
+
+[![AE4610 Stabilization Showcase](https://img.youtube.com/vi/q4ul9D1i0qU/0.jpg)](https://youtube.com/shorts/q4ul9D1i0qU)
 
 ## Presentation of Findings
+After everything, a poster was produced by the team to be presented at the AE4610 exhibit. This poster is in the repository. I was in the room the entire time and the rest of the group came and went, as other classes had other final presentations as well. This was very successful, and the TAs and professor claimed to really enjoy seeing our project!
+
 ## Final Remarks
-We are still very proud that we got it working, especially because there were several setbacks. At one point, the project was knocked off of its table and the flywheel broke! B.L. reprinted a new flywheel within the next few hours and we all scrambled to repair the system.
+Overall, this was a very successful project. We were able to construct and control a SDOF system within the time frame given to us. If we had more time, we could have addressed the issues that were listed above. We would switch out our motor and spend more time editing the Arduino code and tuning the system gains to get better results. This project helped solidify the theory behind controls that were lectured in previous classes. We had to develop our skills in system modeling, system simulation, controller design, and the Arduino IDE. This was a difficult project, and one that I am proud of. The group worked very hard throughout the semester to make this project happen, and it paid off in the end!
